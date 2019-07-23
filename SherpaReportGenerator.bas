@@ -13,19 +13,12 @@ rawData = "riskReport07222019.csv"
 
 Workbooks.Open (ThisWorkbook.Path & "\" & rawData)
 
-
 'Create new workbook to hold report
 Set New_wkb = Workbooks.Add
 timeNow = Now()
 RightNow = Format(timeNow, "mmmm dd, yyyy")
 thisReport = "Sherpa Report" & "-" & RightNow & ".xlsm"
 sherpaReportGen = "SherpaReportGenerator.xlsm"
-
-'Delete old workbook
-'If (Workbooks(ThisWorkbook.Path & "\" & thisReport)) Then
-'    Kill (ThisWorkbook.Path & "\" & thisReport)
-'End If
-
 
 With New_wkb
     .Title = "Sherpa Report" & "-" & DateTime.Now
@@ -35,7 +28,7 @@ End With
 
 'Create Headings
 Workbooks(thisReport).Sheets(1).Cells(1, 1) = "Sales Rep"
-Workbooks(thisReport).Sheets(1).Cells(1, 2) = "RepID"
+Workbooks(thisReport).Sheets(1).Cells(1, 2) = "Team"
 Workbooks(thisReport).Sheets(1).Cells(1, 3) = "Customer Name"
 Workbooks(thisReport).Sheets(1).Cells(1, 4) = "Lease Number"
 Workbooks(thisReport).Sheets(1).Cells(1, 5) = "Maturity Date"
@@ -75,28 +68,39 @@ Next i
 
 totalRows = Workbooks(thisReport).Sheets(1).Cells(Rows.Count, "F").End(xlUp).Row
 totalInLegend = Workbooks(sherpaReportGen).Sheets(2).Cells(Rows.Count, "A").End(xlUp).Row
-
-Cells(1, 13).Value = totalRows
-Cells(1, 14).Value = totalInLegend
+totalInTeams = Workbooks(sherpaReportGen).Sheets(3).Cells(Rows.Count, "A").End(xlUp).Row
 
 For i = 2 To totalInLegend
     'Set Machine to check
     machineToCheck = Workbooks(sherpaReportGen).Sheets(2).Cells(i, 1).Value
     volumeLevel = Workbooks(sherpaReportGen).Sheets(2).Cells(i, 2).Value
-
+    
     'Look through column J for a match
     For j = 2 To totalRows
         If Workbooks(thisReport).Sheets(1).Cells(j, 10).Value = machineToCheck Then
             Workbooks(thisReport).Sheets(1).Cells(j, 9).Value = volumeLevel
-            'TODO and add the rep's ID and Team ID
-            
         End If
     Next j
 Next i
 
+For i = 2 To totalInTeams
+    repNameInLegend = Workbooks(sherpaReportGen).Sheets(3).Cells(i, 1).Value
+    repTeam = Workbooks(sherpaReportGen).Sheets(3).Cells(i, 2).Value
+
+    For j = 2 To totalRows
+        If Workbooks(thisReport).Sheets(1).Cells(j, 1).Value = repNameInLegend Then
+            Workbooks(thisReport).Sheets(1).Cells(j, 2).Value = repTeam
+        End If
+    Next j
+
+Next i
+
+
 Workbooks(thisReport).Sheets(1).Columns("A:R").AutoFit
 Workbooks(thisReport).Sheets(1).Name = "Raw Data"
 Workbooks(thisReport).Sheets(1).Tab.Color = 1
+
+'Create a sheet for the Pivot table
 
 On Error Resume Next
 Application.DisplayAlerts = False
@@ -105,13 +109,12 @@ Sheets.Add Before:=ActiveSheet
 ActiveSheet.Name = "PivotTable"
 Application.DisplayAlerts = True
 Set PSheet = Worksheets("PivotTable")
-Set DSheet = Worksheets("Data")
+Set DSheet = Worksheets("Raw Data")
 
 'Define Data range
-LastRow = Workbooks(thisReport).Sheets(2).Cells(Rows.Count, 1).End(xlUp).Row
-LastCol = Workbooks(thisReport).Sheets(2).Cells(1, Columns.Count).End(xlToLeft).Column
-Set PRange = Workbooks(thisReport).Sheets(2).Cells(1, 1).Resize(LastRow, LastCol)
-
+LastRow = DSheet.Cells(Rows.Count, 1).End(xlUp).Row
+LastCol = DSheet.Cells(1, Columns.Count).End(xlToLeft).Column
+Set PRange = DSheet.Cells(1, 1).Resize(LastRow, LastCol)
 
 'Define Pivot Cache
 Set PCache = ActiveWorkbook.PivotCaches.Create(SourceType:=xlDatabase, SourceData:=PRange).CreatePivotTable(TableDestination:=PSheet.Cells(2, 2), TableName:="SalesPivotTable")
@@ -143,13 +146,6 @@ Workbooks(thisReport).Sheets("PivotTable").Cells(5, 2).Value = "Medium"
 Workbooks(thisReport).Sheets("PivotTable").Cells(4, 2).Value = "Low"
 Workbooks(thisReport).Sheets("PivotTable").Cells(3, 2).Value = "Unknown"
 
-'Insert Column Fields
-'With ActiveSheet.PivotTables("SalesPivotTable").PivotFields("Zone")
-'.Orientation = xlColumnField
-'.Position = 1
-'End With
-
-
 Dim pivotTable As pivotTable
 Set pivotTable = ActiveSheet.PivotTables(1)
 pivotTable.PivotSelect ("My Pivot")
@@ -159,8 +155,6 @@ ActiveChart.ChartType = xlBarClustered
 ActiveChart.ChartStyle = 222
 ActiveChart.ChartTitle.Delete
 ActiveChart.ShowAllFieldButtons = False
-
-
 
 'deselect chart
 Range("A1").Select
