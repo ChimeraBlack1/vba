@@ -43,6 +43,7 @@ Workbooks(thisReport).Sheets(1).Cells(1, 12) = "Address"
 'count data cells
 LastRow = Workbooks(rawData).Sheets(1).Cells(Rows.Count, "F").End(xlUp).Row
 
+'Fill new worksheet with formatted source data
 For i = 1 To LastRow
     'Fill in Sales Rep
     Workbooks(thisReport).Sheets(1).Cells(i + 1, 1).Value = Workbooks(rawData).Sheets(1).Cells(i, 6).Value
@@ -69,16 +70,23 @@ Next i
 totalRows = Workbooks(thisReport).Sheets(1).Cells(Rows.Count, "F").End(xlUp).Row
 totalInLegend = Workbooks(sherpaReportGen).Sheets(2).Cells(Rows.Count, "A").End(xlUp).Row
 totalInTeams = Workbooks(sherpaReportGen).Sheets(3).Cells(Rows.Count, "A").End(xlUp).Row
+unknownVolumeLevel = 4
 
+'For every item in the legend,
 For i = 2 To totalInLegend
     'Set Machine to check
     machineToCheck = Workbooks(sherpaReportGen).Sheets(2).Cells(i, 1).Value
     volumeLevel = Workbooks(sherpaReportGen).Sheets(2).Cells(i, 2).Value
     
-    'Look through column J for a match
+    'Look to see if it matches the model name we're checking
     For j = 2 To totalRows
-        If Workbooks(thisReport).Sheets(1).Cells(j, 10).Value = machineToCheck Then
+        thisDeviceReportItem = Workbooks(thisReport).Sheets(1).Cells(j, 10).Value
+        
+        If thisDeviceReportItem = machineToCheck Then
+            'and assign the right volume level to the line item
             Workbooks(thisReport).Sheets(1).Cells(j, 9).Value = volumeLevel
+        ElseIf thisDeviceReportItem = "" Then
+            Workbooks(thisReport).Sheets(1).Cells(j, 9).Value = unknownVolumeLevel
         End If
     Next j
 Next i
@@ -88,7 +96,9 @@ For i = 2 To totalInTeams
     repTeam = Workbooks(sherpaReportGen).Sheets(3).Cells(i, 2).Value
 
     For j = 2 To totalRows
-        If Workbooks(thisReport).Sheets(1).Cells(j, 1).Value = repNameInLegend Then
+        thisDeviceReportRep = Workbooks(thisReport).Sheets(1).Cells(j, 1).Value
+        
+        If thisDeviceReportRep = repNameInLegend Then
             Workbooks(thisReport).Sheets(1).Cells(j, 2).Value = repTeam
         End If
     Next j
@@ -101,7 +111,6 @@ Workbooks(thisReport).Sheets(1).Name = "Raw Data"
 Workbooks(thisReport).Sheets(1).Tab.Color = 1
 
 'Create a sheet for the Pivot table
-
 On Error Resume Next
 Application.DisplayAlerts = False
 Worksheets("PivotTable").Delete
@@ -147,7 +156,7 @@ Workbooks(thisReport).Sheets("PivotTable").Cells(4, 2).Value = "Low"
 Workbooks(thisReport).Sheets("PivotTable").Cells(3, 2).Value = "Unknown"
 
 Dim pivotTable As pivotTable
-Set pivotTable = ActiveSheet.PivotTables(1)
+Set pivotTable = Sheets(1).PivotTables(1)
 pivotTable.PivotSelect ("My Pivot")
 Charts.Add2
 ActiveChart.Location Where:=xlLocationAsObject, Name:=pivotTable.Parent.Name
