@@ -492,7 +492,7 @@ For i = standardSheetNumber To mySheets
            
             'Diff from MAPP
             diffFromMappFormula = "=AD" + CStr(lpmItem) + "-O" + CStr(lpmItem)
-            diffMappPercentFormula = "=AS" + CStr(moduleStart) + "/AD" + CStr(moduleStart)
+            diffMappPercentFormula = "=AD" + CStr(moduleStart) + "/AS" + CStr(moduleStart)
             Sheets(lpmSheet).Cells(lpmItem, 45).Formula = diffFromMappFormula
             Sheets(lpmSheet).Cells(moduleStart + 2, 46).Formula = diffMappPercentFormula
            
