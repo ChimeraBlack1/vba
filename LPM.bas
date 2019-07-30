@@ -4,7 +4,7 @@ Sub LeasePriceModel20_Button1_Click()
 lpmSheet = 6
 leaseSheet = "Lease Price Model 2.0"
 Sheets(lpmSheet).Activate
-ActiveSheet.Unprotect Password:="sherpadoc1"
+'ActiveSheet.Unprotect Password:="sherpadoc1"
  
 'Align Colums
 Columns("A").ColumnWidth = 0.94
@@ -197,28 +197,28 @@ Cells(moduleStart + 5, 18).Value = "Removal Charge"
 Range(Cells(moduleStart + 5, 18), Cells(moduleStart + 5, 18)).HorizontalAlignment = xlRight
 Range(Cells(moduleStart + 5, 27), Cells(moduleStart + 5, 35)).Merge
 Cells(moduleStart + 5, 27).Value = 0
-Range(Cells(moduleStart + 5, 27), Cells(moduleStart + 5, 35)).Interior.ColorIndex = 6
+'Range(Cells(moduleStart + 5, 27), Cells(moduleStart + 5, 35)).Interior.ColorIndex = 6
  
 'Service Allocation
 Cells(moduleStart + 6, 18).Value = "Service Allocation"
 Range(Cells(moduleStart + 6, 18), Cells(moduleStart + 6, 18)).HorizontalAlignment = xlRight
 Range(Cells(moduleStart + 6, 27), Cells(moduleStart + 6, 35)).Merge
 Cells(moduleStart + 6, 27).Value = 0
-Range(Cells(moduleStart + 6, 27), Cells(moduleStart + 6, 35)).Interior.ColorIndex = 6
+'Range(Cells(moduleStart + 6, 27), Cells(moduleStart + 6, 35)).Interior.ColorIndex = 6
  
 'Marketing Promotion
 Cells(moduleStart + 7, 18).Value = "Marketing Promotion"
 Range(Cells(moduleStart + 7, 18), Cells(moduleStart + 7, 18)).HorizontalAlignment = xlRight
 Range(Cells(moduleStart + 7, 27), Cells(moduleStart + 7, 35)).Merge
 Cells(moduleStart + 7, 27).Value = 0
-Range(Cells(moduleStart + 7, 27), Cells(moduleStart + 7, 35)).Interior.ColorIndex = 6
+'Range(Cells(moduleStart + 7, 27), Cells(moduleStart + 7, 35)).Interior.ColorIndex = 6
  
 'Trade-In Amount (Discount)
 Cells(moduleStart + 8, 18).Value = "Trade-In Amount (Discount)"
 Range(Cells(moduleStart + 8, 18), Cells(moduleStart + 8, 18)).HorizontalAlignment = xlRight
 Range(Cells(moduleStart + 8, 27), Cells(moduleStart + 8, 35)).Merge
 Cells(moduleStart + 8, 27).Value = 0
-Range(Cells(moduleStart + 8, 27), Cells(moduleStart + 8, 35)).Interior.ColorIndex = 6
+'Range(Cells(moduleStart + 8, 27), Cells(moduleStart + 8, 35)).Interior.ColorIndex = 6
  
 'Provincial Environmental Levy
 Cells(moduleStart + 9, 18).Value = "Provincial Environmental Levy"
@@ -243,7 +243,7 @@ Cells(moduleStart + 12, 18).Value = "Discretionary Items"
 Range(Cells(moduleStart + 12, 18), Cells(moduleStart + 12, 18)).HorizontalAlignment = xlRight
 Range(Cells(moduleStart + 12, 27), Cells(moduleStart + 12, 35)).Merge
 Cells(moduleStart + 12, 27).Value = 0
-Range(Cells(moduleStart + 12, 27), Cells(moduleStart + 12, 35)).Interior.ColorIndex = 6
+'Range(Cells(moduleStart + 12, 27), Cells(moduleStart + 12, 35)).Interior.ColorIndex = 6
  
 'Invoice Price
 Range(Cells(moduleStart + 14, 27), Cells(moduleStart + 14, 35)).Merge
@@ -560,9 +560,13 @@ Cells(moduleStart + 27, 20).Formula = totalCostFormula
 Cells(moduleStart + 31, 20).Formula = totalCostFormula
  
 'Lock cells and protect sheet
-Range(Cells(moduleStart, 1), Cells(moduleStart + 30, 58)).Locked = False
-Range(Cells(1, 1), Cells(moduleStart - 1, 58)).Locked = True
-ActiveSheet.Protect Password:="sherpadoc1"
+'Range(Cells(5, 1), Cells(11, 58)).Locked = True
+'Range(Cells(8, 40), Cells(8, 56)).Locked = False
+'Range(Cells(moduleStart, 1), Cells(moduleStart + 30, 58)).Locked = False
+'ActiveSheet.Protect Password:="sherpadoc1"
  
 End Sub
+
+
+
 
