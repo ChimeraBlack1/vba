@@ -491,8 +491,8 @@ For i = standardSheetNumber To mySheets
             Sheets(lpmSheet).Range(Cells(moduleStart, 45), Cells(moduleStart, 45)).NumberFormat = accountingFormat
            
             'Diff from MAPP
-            diffFromMappFormula = "=AD" + CStr(lpmItem) + "-O" + CStr(lpmItem)
-            diffMappPercentFormula = "=AD" + CStr(moduleStart) + "/AS" + CStr(moduleStart)
+            diffFromMappFormula = "=O" + CStr(lpmItem) + "-AD" + CStr(lpmItem)
+            diffMappPercentFormula = "=AS" + CStr(moduleStart) + "/AD" + CStr(moduleStart)
             Sheets(lpmSheet).Cells(lpmItem, 45).Formula = diffFromMappFormula
             Sheets(lpmSheet).Cells(moduleStart + 2, 46).Formula = diffMappPercentFormula
            
