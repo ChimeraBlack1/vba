@@ -67,16 +67,7 @@ Columns("BE").ColumnWidth = 0.94
 Columns("BF").ColumnWidth = 0.94
 Columns("BG").ColumnWidth = 0.94
  
-'Font Settings
-Range(Cells(14, 1), Cells(moduleStart + 40, 58)).Font.Size = 11
-Range(Cells(14, 1), Cells(moduleStart + 40, 58)).Font.Name = "Times New Roman"
- 
-'Air % font
-Range(Cells(moduleStart + 23, 34), Cells(moduleStart + 23, 34)).Font.Size = 8
- 
-Cells(moduleStart + 4, 18).Value = "Delivery Charge"
-Range(Cells(moduleStart + 4, 18), Cells(moduleStart + 14, 18)).Font.Size = 10
-Range(Cells(moduleStart + 4, 18), Cells(moduleStart + 14, 18)).Font.Name = "Arial"
+
  
 percentageFormat = "0.00%"
 accountingFormat = "_-$* #,##0.00_-;-$* #,##0.00_-;_-$* ""-""??_-;_-@_-"
@@ -145,6 +136,8 @@ With Worksheets(leaseSheet).Range(Cells(moduleStart - 2, 45), Cells(moduleStart 
     .Weight = xlThin
 End With
  
+ 
+
  
 'Align Footer Row above totals
 Rows(moduleStart - 1).RowHeight = 6.6
@@ -510,6 +503,26 @@ For i = standardSheetNumber To mySheets
  
  
 Next i
+
+'Set Row Heights
+Rows(moduleStart).RowHeight = 12
+Rows(moduleStart + 1).RowHeight = 12
+Rows(moduleStart + 2).RowHeight = 12
+Rows(moduleStart + 3).RowHeight = 12
+Rows(moduleStart + 4).RowHeight = 12
+Rows(moduleStart + 5).RowHeight = 12
+Rows(moduleStart + 6).RowHeight = 12
+Rows(moduleStart + 7).RowHeight = 12
+Rows(moduleStart + 8).RowHeight = 12
+Rows(moduleStart + 9).RowHeight = 12
+Rows(moduleStart + 10).RowHeight = 12
+Rows(moduleStart + 11).RowHeight = 12
+Rows(moduleStart + 12).RowHeight = 12
+Rows(moduleStart + 13).RowHeight = 12
+Rows(moduleStart + 14).RowHeight = 12
+Rows(moduleStart + 15).RowHeight = 12
+Rows(moduleStart + 16).RowHeight = 12
+Rows(moduleStart + 17).RowHeight = 12
  
 Cells(moduleStart + 11, 27).Value = totalSettlement
 
@@ -558,7 +571,13 @@ Cells(moduleStart + 27, 20).Formula = totalCostFormula
  
 'Total Amount Financed
 Cells(moduleStart + 31, 20).Formula = totalCostFormula
- 
+  
+ 'Air % font
+Range(Cells(moduleStart + 23, 34), Cells(moduleStart + 23, 34)).Font.Size = 8
+Range(Cells(moduleStart + 4, 18), Cells(moduleStart + 14, 18)).Font.Size = 10
+Range(Cells(moduleStart + 4, 18), Cells(moduleStart + 14, 18)).Font.Name = "Arial"
+
+
 'Lock cells and protect sheet
 'Range(Cells(5, 1), Cells(11, 58)).Locked = True
 'Range(Cells(8, 40), Cells(8, 56)).Locked = False
