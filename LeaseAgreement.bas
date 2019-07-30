@@ -1,5 +1,8 @@
 Attribute VB_Name = "Module2"
 Sub Button1_Click()
+leaseSheet = "Lease Agreement 2.0"
+Sheets(leaseSheet).Activate
+
 Dim LA_model As String
 Dim lastStreet As String
 Dim lastCity As String

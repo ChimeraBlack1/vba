@@ -1,5 +1,9 @@
 Attribute VB_Name = "Module4"
 Sub IQ20_Button1_Click()
+
+inqSheet = "INQ 2.0"
+Sheets(inqSheet).Activate
+
 'Align Columns
 Columns("A").ColumnWidth = 0
 Columns("B").ColumnWidth = 0

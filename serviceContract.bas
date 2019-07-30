@@ -1,6 +1,9 @@
 Attribute VB_Name = "Module1"
 Sub Button2_Click()
- 
+
+serviceAgreementSheet = "Service Contract 2.0"
+Sheets(serviceAgreementSheet).Activate
+
 moduleStart = 12
 standardSheetNumber = 15
 mySheets = Worksheets.Count
