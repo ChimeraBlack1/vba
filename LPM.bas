@@ -396,7 +396,13 @@ Rows(moduleStart + 40).RowHeight = 6.6
  
  
 'Footer thick side border
-  With Worksheets(leaseSheet).Range(Cells(moduleStart - 1, 58), Cells(moduleStart + 40, 58)).Borders(xlEdgeRight)
+    With Worksheets(leaseSheet).Range(Cells(moduleStart - 1, 58), Cells(moduleStart + 40, 58)).Borders(xlEdgeRight)
+       .LineStyle = xlContinuous
+       .Weight = xlMedium
+    End With
+    
+    'This side border (left)
+    With Worksheets(leaseSheet).Range(Cells(15, 1), Cells(moduleStart + 40, 1)).Borders(xlEdgeLeft)
        .LineStyle = xlContinuous
        .Weight = xlMedium
     End With
@@ -585,6 +591,7 @@ Range(Cells(moduleStart + 4, 18), Cells(moduleStart + 14, 18)).Font.Name = "Aria
 'ActiveSheet.Protect Password:="sherpadoc1"
  
 End Sub
+
 
 
 
