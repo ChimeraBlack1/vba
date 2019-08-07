@@ -354,8 +354,7 @@ Cells(moduleStart + 5, 9).Font.Bold = False
 Cells(moduleStart + 5, 9).Value = "Service Start Date:"
 Cells(moduleStart + 5, 9).VerticalAlignment = xlBottom
 
-'Erase line
-
 End Sub
+
 
 
