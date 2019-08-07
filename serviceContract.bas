@@ -85,6 +85,7 @@ For i = standardSheetNumber To mySheets
 Range(Cells(moduleStart + 1, 9), Cells(moduleStart + 20, 9)).RowHeight = 10.2
 Range(Cells(moduleStart + 1, 1), Cells(moduleStart + 20, 9)).Font.Bold = False
 Range(Cells(moduleStart + 1, 9), Cells(moduleStart + 20, 9)).Borders(xlEdgeRight).LineStyle = xlContinuous
+Range(Cells(moduleStart + 1, 1), Cells(moduleStart + 20, 1)).Borders(xlEdgeLeft).LineStyle = xlContinuous
  
 Cells(moduleStart + 2, 1).Value = "Contract Type: CPC"
 Range(Cells(moduleStart + 2, 1), Cells(moduleStart + 2, 9)).Merge
@@ -289,7 +290,8 @@ Cells(moduleStart + 1, 1).RowHeight = 72.6
 Cells(moduleStart + 1, 1).WrapText = True
 Cells(moduleStart + 1, 1).IndentLevel = 1
 Range(Cells(moduleStart + 1, 1), Cells(moduleStart + 1, 9)).VerticalAlignment = xlCenter
-Range(Cells(moduleStart + 1, 9), Cells(moduleStart + 6, 9)).Borders(xlEdgeRight).LineStyle = xlContinuous
+Range(Cells(moduleStart + 1, 9), Cells(moduleStart + 4, 9)).Borders(xlEdgeRight).LineStyle = xlContinuous
+Range(Cells(moduleStart + 1, 1), Cells(moduleStart + 4, 1)).Borders(xlEdgeLeft).LineStyle = xlContinuous
  
 'Signature
 Range(Cells(moduleStart + 2, 1), Cells(moduleStart + 2, 9)).Merge
@@ -353,6 +355,7 @@ Cells(moduleStart + 5, 9).Value = "Service Start Date:"
 Cells(moduleStart + 5, 9).VerticalAlignment = xlBottom
 
 'Erase line
-Range(Cells(moduleStart + 6, 9), Cells(moduleStart + 6, 9)).Borders.LineStyle = xlNone
 
 End Sub
+
+
