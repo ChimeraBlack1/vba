@@ -1,11 +1,12 @@
 Attribute VB_Name = "Module1"
-Sub FindLeaseTotal()
+Sub FindUniqueLeases()
 
 targetSheet = "Raw Data"
 endOfLeaseSheet = Sheets(targetSheet).Cells(Rows.Count, "D").End(xlUp).Row
 totalLeaseValue = 0
 portfolioTotal = "PortFolio Total (calc)"
 portfolioRowIndex = 1
+thisReport = "Sherpa Report-September 06, 2019"
 
 For i = 2 To endOfLeaseSheet
     leaseNumber = Sheets(targetSheet).Cells(i, 4).Value
@@ -21,5 +22,6 @@ For i = 2 To endOfLeaseSheet
     End If
 Next i
 
+Workbooks(thisReport).Sheets(portfolioTotal).Columns("A:R").AutoFit
 
 End Sub

@@ -347,9 +347,22 @@ For i = standardSheetNumber To mySheets
     'SECTION BORDERS
     Range(Cells(moduleStart + 14, 3), Cells(moduleStart + 26, 60)).BorderAround ColorIndex:=1, Weight:=xlMedium
     Range(Cells(moduleStart + 14, 3), Cells(moduleStart + 26, 60)).BorderAround ColorIndex:=1, Weight:=xlMedium
-    Range(Cells(moduleStart + 28, 3), Cells(moduleStart + 67, 60)).BorderAround ColorIndex:=1, Weight:=xlMedium
+      
+      '///////////////////////////////////// Does the cust have @remote /////////////////////////////////////////
+      
+    Range(Cells(moduleStart + 28, 3), Cells(moduleStart + 31, 60)).BorderAround ColorIndex:=1, Weight:=xlMedium
+    Cells(moduleStart + 29, 4).Value = "THE CLIENT HAS @REMOTE APPLIANCES"
+    Cells(moduleStart + 29, 4).Font.Bold = True
+    Cells(moduleStart + 29, 45).Value = "Yes"
+    Cells(moduleStart + 29, 45).Font.Bold = True
+    Range(Cells(moduleStart + 29, 44), Cells(moduleStart + 29, 44)).BorderAround ColorIndex:=1
+    Cells(moduleStart + 29, 53).Value = "No"
+    Cells(moduleStart + 29, 53).Font.Bold = True
+    Range(Cells(moduleStart + 29, 52), Cells(moduleStart + 29, 52)).BorderAround ColorIndex:=1
+    moduleStart = moduleStart + 6
     
     '//////////////////////////////////// MAIN SECTION ///////////////////////////////////////////
+    Range(Cells(moduleStart + 28, 3), Cells(moduleStart + 67, 60)).BorderAround ColorIndex:=1, Weight:=xlMedium
     Cells(moduleStart + 29, 4).Value = "Server"
     Cells(moduleStart + 29, 4).Font.Bold = True
     Range(Cells(moduleStart + 29, 11), Cells(moduleStart + 29, 11)).BorderAround ColorIndex:=1
@@ -569,4 +582,5 @@ Next i
 
 
 End Sub
+
 

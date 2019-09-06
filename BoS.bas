@@ -1,10 +1,10 @@
 Attribute VB_Name = "Module3"
 Sub BoS20_Button1_Click()
 
-BOSSheet = "BoS 2.0"
+bosSheet = "BoS 2.0"
 equipmentSheet = "Equip. Info-DO NOT DELETE"
 lpmSheet = "Lease Price Model 2.0"
-Sheets(BOSSheet).Activate
+Sheets(bosSheet).Activate
 
 'Align columns
 Columns("A").ColumnWidth = 1.67
@@ -177,7 +177,7 @@ productListEnd = Sheets(equipmentSheet).Range("B16").End(xlDown).Row - StandardR
 itemsInSheet = 0
 filledItems = 0
 itemsFound = 0
-BOSSheet = 7
+bosSheet = 7
 qtyFound = 0
 totalDealSettlement = 0
 
@@ -223,7 +223,7 @@ For i = standardSheetNumber To mySheets
     If currentWs < mySheets Then
         currentWs = currentWs + 1
     Else
-        Sheets(BOSSheet).Activate
+        Sheets(bosSheet).Activate
     End If
  
  
@@ -253,11 +253,8 @@ For i = standardSheetNumber To mySheets
     thisProv = Sheets(i).Cells(10, 2).Value
     thisModel = Sheets(i).Cells(16, 2).Value
     thisConfigPrice = WorksheetFunction.Sum(Sheets(i).Range(Cells(16, 6), Cells(45, 6)))
-    Sheets(BOSSheet).Activate
+    Sheets(bosSheet).Activate
  
-    'if address of this machine matches address of the last machine, check if the machine is the same model
-    If thisLocation <> lastLocation Or thisModel <> lastModel Then
-   
         'Set Quantity
       Cells(moduleStart, 2).Value = 1
       
@@ -313,12 +310,7 @@ For i = standardSheetNumber To mySheets
         lastLocation = thisLocation
         lastModel = thisModel
  
-    Else
-    'increment Qty and move to the next iteration
-     Cells(moduleStart - 1, 2).Value = Cells(moduleStart - 1, 2).Value + 1
-    End If
-   
-   
+
     For j = 0 To modelTypes - 1
         modelToCheck = Sheets(2).Cells(modelsToCheckStart + j, 18).Value
        
@@ -486,3 +478,4 @@ Range(Cells(moduleStart + 28, 7), Cells(moduleStart + 32, 8)).BorderAround Color
 
 
 End Sub
+
