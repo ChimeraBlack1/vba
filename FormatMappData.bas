@@ -1,7 +1,7 @@
 Attribute VB_Name = "Module1"
 Sub FormatData()
 
-lineCount = Range("A1").End(xlDown)
+lineCount = Range("A1").End(xlDown).Row
 
 If lineCount <= 1 Then
     lineCount = 1
