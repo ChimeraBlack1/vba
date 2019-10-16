@@ -1,7 +1,11 @@
 Attribute VB_Name = "Module1"
 Sub FormatData()
 
-lineCount = Range("A1").End(xlDown).Row
+lineCount = Range("A1").End(xlDown)
+
+If lineCount <= 1 Then
+    lineCount = 1
+End If
 
 insertRowPointer = 1
 
