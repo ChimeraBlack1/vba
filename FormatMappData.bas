@@ -16,6 +16,19 @@ For i = 1 To linesToProcess
     desc = Cells(insertRowPointer + 1, 2).Value
     Cells(insertRowPointer, 2).Value = desc
     
+    'merge cells
+    mergeRangeA = "A" & insertRowPointer & ":" & "A" & (insertRowPointer + 1)
+    mergeRangeC = "C" & insertRowPointer & ":" & "C" & (insertRowPointer + 1)
+    mergeRangeD = "D" & insertRowPointer & ":" & "D" & (insertRowPointer + 1)
+    mergeRangeE = "E" & insertRowPointer & ":" & "E" & (insertRowPointer + 1)
+    mergeRangeF = "F" & insertRowPointer & ":" & "F" & (insertRowPointer + 1)
+    
+    Range(mergeRangeA).Merge
+    Range(mergeRangeC).Merge
+    Range(mergeRangeD).Merge
+    Range(mergeRangeE).Merge
+    Range(mergeRangeF).Merge
+    
     insertRowPointer = insertRowPointer + 2
 
     
