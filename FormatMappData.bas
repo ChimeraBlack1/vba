@@ -2,11 +2,13 @@ Attribute VB_Name = "Module1"
 Sub FormatData()
 
 
-linesToProcess = Application.WorksheetFunction.Count(Range("A1:A1000"))
+'linesToProcess = Application.WorksheetFunction.CountIf(Range("A1:A1000"), "*")
+'linesToProcess2 = Application.WorksheetFunction.Count(Range("A1:A1000"))
+lineCount = Range("A1").End(xlDown).Row
 
 insertRowPointer = 1
 
-For i = 1 To linesToProcess
+For i = 1 To lineCount
     
     'insert row
     myRange = insertRowPointer & ":" & insertRowPointer
