@@ -146,7 +146,7 @@ appText = appText & "SIGNATURE:"
 'Sales tax Rates
 abTax = 0.05
 bcTax = 0.12
-mbTax = 0.13
+mbTax = 0.12
 nbTax = 0.15
 nfTax = 0.15
 ntTax = 0.05
@@ -254,7 +254,7 @@ For i = standardSheetNumber To mySheets
     thisModel = Sheets(i).Cells(16, 2).Value
     thisConfigPrice = WorksheetFunction.Sum(Sheets(i).Range(Cells(16, 6), Cells(45, 6)))
     Sheets(bosSheet).Activate
- 
+   
         'Set Quantity
       Cells(moduleStart, 2).Value = 1
       
@@ -309,8 +309,9 @@ For i = standardSheetNumber To mySheets
        
         lastLocation = thisLocation
         lastModel = thisModel
- 
 
+   
+   
     For j = 0 To modelTypes - 1
         modelToCheck = Sheets(2).Cells(modelsToCheckStart + j, 18).Value
        

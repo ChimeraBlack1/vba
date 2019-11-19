@@ -60,6 +60,11 @@ Call Button3_Click
 'Lease - LPM, Lease Agreement
 'LPM
 Call LeasePriceModel20_Button1_Click
+Call LeasePriceModel20_Button2_Click
+
+'ZBA (Trans type status)
+Call LeasePriceModel20_Button2_Click
+
 'LA
 Call Button1_Click
 

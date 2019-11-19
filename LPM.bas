@@ -68,7 +68,7 @@ Columns("BF").ColumnWidth = 0.94
 Columns("BG").ColumnWidth = 0.94
  
 
- 
+accountDetailsSheet = "Account Info-DO NOT DELETE"
 percentageFormat = "0.00%"
 accountingFormat = "_-$* #,##0.00_-;-$* #,##0.00_-;_-$* ""-""??_-;_-@_-"
 moduleStart = 16
@@ -396,13 +396,7 @@ Rows(moduleStart + 40).RowHeight = 6.6
  
  
 'Footer thick side border
-    With Worksheets(leaseSheet).Range(Cells(moduleStart - 1, 58), Cells(moduleStart + 40, 58)).Borders(xlEdgeRight)
-       .LineStyle = xlContinuous
-       .Weight = xlMedium
-    End With
-    
-    'This side border (left)
-    With Worksheets(leaseSheet).Range(Cells(15, 1), Cells(moduleStart + 40, 1)).Borders(xlEdgeLeft)
+  With Worksheets(leaseSheet).Range(Cells(moduleStart - 1, 58), Cells(moduleStart + 40, 58)).Borders(xlEdgeRight)
        .LineStyle = xlContinuous
        .Weight = xlMedium
     End With
@@ -583,6 +577,11 @@ Range(Cells(moduleStart + 23, 34), Cells(moduleStart + 23, 34)).Font.Size = 8
 Range(Cells(moduleStart + 4, 18), Cells(moduleStart + 14, 18)).Font.Size = 10
 Range(Cells(moduleStart + 4, 18), Cells(moduleStart + 14, 18)).Font.Name = "Arial"
 
+'This side border (left)
+With Worksheets(leaseSheet).Range(Cells(moduleStart - 5, 1), Cells(moduleStart + 40, 1)).Borders(xlEdgeLeft)
+   .LineStyle = xlContinuous
+   .Weight = xlMedium
+End With
 
 'Lock cells and protect sheet
 'Range(Cells(5, 1), Cells(11, 58)).Locked = True

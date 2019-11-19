@@ -1,24 +1,23 @@
 Attribute VB_Name = "Module7"
 Sub LeasePriceModel20_Button2_Click()
 
-ActiveSheet.Unprotect Password:="sherpadoc1"
+'ActiveSheet.Unprotect Password:="sherpadoc1"
 
+accountInfoSheet = "Account Info-DO NOT DELETE"
 standardSheets = 15
 mySheets = Worksheets.Count
 zbaStart = 16
+transType = Sheets(accountInfoSheet).Cells(14, 4).Value
 
 For i = standardSheets To mySheets
-    Zba = Cells(zbaStart, 41).Value
     
-    If Zba = "ZBA" Then
-        Cells(zbaStart, 41).Value = ""
-    Else
-        Cells(zbaStart, 41).Value = "ZBA"
-    End If
-    
+    Cells(zbaStart, 41).Value = transType
+
     zbaStart = zbaStart + 2
 Next i
 
-ActiveSheet.Protect Password:="sherpadoc1"
+'ActiveSheet.Protect Password:="sherpadoc1"
 
 End Sub
+
+
