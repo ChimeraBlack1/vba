@@ -457,9 +457,11 @@ For i = standardSheetNumber To mySheets
                         totalSettlement = totalSettlement + thisConfigSettlement
                     End If
                     
+                    pcToCheckLen = Len(pcToCheck)
+                    
                     Sheets(currentWs).Cells(currentItem + k, 6).Value = productCost * productQty
                     Sheets(currentWs).Cells(currentItem + k, 7).Value = mappCost * productQty
-
+        
                     firstProduct = firstProduct + 1
                     itemsFound = itemsFound + 1
 
@@ -485,7 +487,7 @@ For i = standardSheetNumber To mySheets
            
             'Diff from MAPP
             diffFromMappFormula = "=O" + CStr(lpmItem) + "-AD" + CStr(lpmItem)
-            diffMappPercentFormula = "=AS" + CStr(moduleStart) + "/AD" + CStr(moduleStart)
+            diffMappPercentFormula = "=IF(AD" + CStr(moduleStart) + " > 0, AS" + CStr(moduleStart) + "/AD" + CStr(moduleStart) + ", 0)"
             Sheets(lpmSheet).Cells(lpmItem, 45).Formula = diffFromMappFormula
             Sheets(lpmSheet).Cells(moduleStart + 2, 46).Formula = diffMappPercentFormula
            

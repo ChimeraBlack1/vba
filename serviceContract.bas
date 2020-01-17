@@ -81,187 +81,220 @@ End If
  
 'Create Layout
 For i = standardSheetNumber To mySheets
- 
-Range(Cells(moduleStart + 1, 9), Cells(moduleStart + 20, 9)).RowHeight = 10.2
-Range(Cells(moduleStart + 1, 1), Cells(moduleStart + 20, 9)).Font.Bold = False
-Range(Cells(moduleStart + 1, 9), Cells(moduleStart + 20, 9)).Borders(xlEdgeRight).LineStyle = xlContinuous
-Range(Cells(moduleStart + 1, 1), Cells(moduleStart + 20, 1)).Borders(xlEdgeLeft).LineStyle = xlContinuous
- 
-Cells(moduleStart + 2, 1).Value = "Contract Type: CPC"
-Range(Cells(moduleStart + 2, 1), Cells(moduleStart + 2, 9)).Merge
-Range(Cells(moduleStart + 2, 1), Cells(moduleStart + 2, 9)).Font.Bold = True
- 
-Cells(moduleStart + 3, 1).Value = "Model"
-Range(Cells(moduleStart + 3, 1), Cells(moduleStart + 3, 3)).Merge
-Range(Cells(moduleStart + 3, 1), Cells(moduleStart + 3, 3)).Font.Bold = True
- 
-Cells(moduleStart + 5, 1).Value = "Additional Fixed Charge"
-Range(Cells(moduleStart + 5, 1), Cells(moduleStart + 5, 3)).Merge
-Range(Cells(moduleStart + 5, 1), Cells(moduleStart + 5, 3)).Font.Bold = True
- 
-Cells(moduleStart + 6, 1).Value = "NO"
-Cells(moduleStart + 7, 1).Value = "Fixed Charge Description (if applicable):"
-Range(Cells(moduleStart + 7, 1), Cells(moduleStart + 7, 9)).Merge
- 
-'Black
-Cells(moduleStart + 9, 1).Value = "Blk"
-Range(Cells(moduleStart + 5, 1), Cells(moduleStart + 5, 3)).Font.Bold = True
-Range(Cells(moduleStart + 8, 1), Cells(moduleStart + 10, 9)).Borders.LineStyle = xlContinuous
- 
-'Color
-Cells(moduleStart + 10, 1).Value = "Clr"
-Cells(moduleStart + 12, 1).Value = "SHIP TO:"
-Range(Cells(moduleStart + 12, 1), Cells(moduleStart + 12, 9)).Merge
-Cells(moduleStart + 12, 1).Font.Bold = True
- 
-Cells(moduleStart + 13, 1).Value = "Account #:"
- 
-Cells(moduleStart + 14, 1).Value = "Name"
-Cells(moduleStart + 15, 1).Value = "Address"
- 
-Cells(moduleStart + 19, 1).Value = "Special Provisions:"
-Range(Cells(moduleStart + 19, 1), Cells(moduleStart + 20, 8)).Merge
-Range(Cells(moduleStart + 19, 1), Cells(moduleStart + 20, 8)).VerticalAlignment = xlVAlignTop
-Range(Cells(moduleStart + 19, 1), Cells(moduleStart + 20, 8)).Borders.LineStyle = xlContinuous
- 
-Cells(moduleStart + 6, 2).Value = "YES"
- 
-'Image Charge
-Cells(moduleStart + 8, 2).Value = "Image Charge"
-Cells(moduleStart + 9, 2).Value = Sheets(2).Cells(machine, 37).Value
-Cells(moduleStart + 10, 2).Value = Sheets(2).Cells(machine, 38).Value
-Range(Cells(moduleStart + 8, 2), Cells(moduleStart + 8, 9)).Font.Bold = True
-Range(Cells(moduleStart + 8, 2), Cells(moduleStart + 8, 4)).HorizontalAlignment = xlCenter
-Range(Cells(moduleStart + 8, 2), Cells(moduleStart + 8, 4)).Merge
- 
-Range(Cells(moduleStart + 9, 2), Cells(moduleStart + 9, 4)).HorizontalAlignment = xlCenter
-Range(Cells(moduleStart + 9, 2), Cells(moduleStart + 9, 4)).Merge
- 
-Range(Cells(moduleStart + 10, 2), Cells(moduleStart + 10, 4)).HorizontalAlignment = xlCenter
-Range(Cells(moduleStart + 10, 2), Cells(moduleStart + 10, 4)).Merge
- 
-Cells(moduleStart + 3, 4).Value = "Serial#"
-Range(Cells(moduleStart + 4, 4), Cells(moduleStart + 4, 5)).Interior.ColorIndex = 6
-Range(Cells(moduleStart + 3, 4), Cells(moduleStart + 3, 5)).Merge
-Range(Cells(moduleStart + 3, 4), Cells(moduleStart + 3, 9)).Font.Bold = True
- 
-Cells(moduleStart + 5, 4).Value = "Fix Change Amount"
-Range(Cells(moduleStart + 5, 4), Cells(moduleStart + 5, 9)).Font.Bold = True
-Range(Cells(moduleStart + 6, 4), Cells(moduleStart + 6, 5)).Merge
-Range(Cells(moduleStart + 6, 4), Cells(moduleStart + 6, 8)).Interior.ColorIndex = 6
- 
-'Agreed Volume
-Cells(moduleStart + 8, 5).Value = "Agreed Volume"
-Cells(moduleStart + 9, 5).Value = Sheets(2).Cells(machine, 39).Value
-Cells(moduleStart + 10, 5).Value = Sheets(2).Cells(machine, 40).Value
-Range(Cells(moduleStart + 8, 5), Cells(moduleStart + 8, 5)).HorizontalAlignment = xlCenter
-Range(Cells(moduleStart + 8, 5), Cells(moduleStart + 8, 7)).Merge
- 
-Range(Cells(moduleStart + 9, 5), Cells(moduleStart + 9, 7)).HorizontalAlignment = xlCenter
-Range(Cells(moduleStart + 9, 5), Cells(moduleStart + 9, 7)).Merge
- 
-Range(Cells(moduleStart + 10, 5), Cells(moduleStart + 10, 5)).HorizontalAlignment = xlCenter
-Range(Cells(moduleStart + 10, 5), Cells(moduleStart + 10, 7)).Merge
- 
-'Installed date
-Cells(moduleStart + 3, 6).Value = "Installed Date"
-Range(Cells(moduleStart + 3, 6), Cells(moduleStart + 3, 8)).Merge
-Range(Cells(moduleStart + 4, 6), Cells(moduleStart + 4, 8)).Merge
- 
-Cells(moduleStart + 5, 6).Value = "Billing Frequency"
-Range(Cells(moduleStart + 5, 6), Cells(moduleStart + 5, 8)).Merge
-Range(Cells(moduleStart + 6, 6), Cells(moduleStart + 6, 8)).Merge
- 
-Cells(moduleStart + 13, 6).Value = "Meter Read:"
-Range(Cells(moduleStart + 13, 7), Cells(moduleStart + 13, 9)).Merge
-Range(Cells(moduleStart + 13, 7), Cells(moduleStart + 13, 9)).Borders(xlEdgeBottom).LineStyle = xlDash
-Range(Cells(moduleStart + 13, 7), Cells(moduleStart + 13, 8)).Interior.ColorIndex = 6
- 
-Cells(moduleStart + 14, 6).Value = "Phone #:"
-Range(Cells(moduleStart + 14, 7), Cells(moduleStart + 14, 9)).Merge
-Range(Cells(moduleStart + 14, 7), Cells(moduleStart + 14, 9)).Borders(xlEdgeBottom).LineStyle = xlDash
- 
-Cells(moduleStart + 15, 6).Value = "Fax #:"
-Range(Cells(moduleStart + 15, 7), Cells(moduleStart + 15, 9)).Merge
-Range(Cells(moduleStart + 15, 7), Cells(moduleStart + 15, 9)).Borders(xlEdgeBottom).LineStyle = xlDash
- 
-Cells(moduleStart + 16, 6).Value = "Email:"
-Range(Cells(moduleStart + 16, 7), Cells(moduleStart + 16, 9)).Merge
-Range(Cells(moduleStart + 16, 7), Cells(moduleStart + 16, 9)).Borders(xlEdgeBottom).LineStyle = xlDash
- 
-'Cells at bottom of Module
-Range(Cells(moduleStart + 17, 7), Cells(moduleStart + 17, 9)).Merge
-Range(Cells(moduleStart + 18, 1), Cells(moduleStart + 18, 9)).Merge
- 
-Cells(moduleStart + 8, 8).Value = "Meter Start"
-Range(Cells(moduleStart + 8, 8), Cells(moduleStart + 8, 8)).HorizontalAlignment = xlCenter
-Range(Cells(moduleStart + 8, 8), Cells(moduleStart + 8, 9)).Merge
- 
-'under meter start
-Range(Cells(moduleStart + 9, 8), Cells(moduleStart + 9, 8)).HorizontalAlignment = xlCenter
-Range(Cells(moduleStart + 9, 8), Cells(moduleStart + 9, 9)).Merge
- 
-'second cell under meter start
-Range(Cells(moduleStart + 10, 8), Cells(moduleStart + 10, 8)).HorizontalAlignment = xlCenter
-Range(Cells(moduleStart + 10, 8), Cells(moduleStart + 10, 9)).Merge
- 
-Cells(moduleStart + 3, 9).Value = "Service Fee"
- 
-Cells(moduleStart + 4, 9).Interior.ColorIndex = 6
- 
-Cells(moduleStart + 5, 9).Value = "Initial Period (Mths)"
- 
-Cells(moduleStart + 6, 9).HorizontalAlignment = xlLeft
- 
-'line break the customer and initial
-Cells(moduleStart + 19, 9).Value = "Customer " & Chr(10) & "Initial:"
-Range(Cells(moduleStart + 19, 9), Cells(moduleStart + 20, 9)).Merge
-Range(Cells(moduleStart + 19, 9), Cells(moduleStart + 20, 9)).Borders.LineStyle = xlContinuous
- 
- 
-    'Get Sheet name
-  myActiveSheet = Sheets(i).Name
- 
-    'Get Model
-  Range(Cells(moduleStart + 4, 1), Cells(moduleStart + 4, 3)).Merge
+    
+    myActiveSheet = Sheets(i).Name
     Model = Sheets(myActiveSheet).Cells(16, 2).Value
+    City = Sheets(myActiveSheet).Cells(9, 2).Value
+    State = Sheets(myActiveSheet).Cells(10, 2).Value
+    ZipCode = Sheets(myActiveSheet).Cells(11, 2).Value
+ 
+    'Row 1
+    Range(Cells(moduleStart + 1, 9), Cells(moduleStart + 20, 9)).RowHeight = 10.2
+    Range(Cells(moduleStart + 1, 1), Cells(moduleStart + 20, 9)).Font.Bold = False
+    Range(Cells(moduleStart + 1, 9), Cells(moduleStart + 20, 9)).Borders(xlEdgeRight).LineStyle = xlContinuous
+    Range(Cells(moduleStart + 1, 1), Cells(moduleStart + 20, 1)).Borders(xlEdgeLeft).LineStyle = xlContinuous
+     
+    'Row 2
+    Cells(moduleStart + 2, 1).Value = "Contract Type: CPC"
+    Range(Cells(moduleStart + 2, 1), Cells(moduleStart + 2, 9)).Merge
+    Range(Cells(moduleStart + 2, 1), Cells(moduleStart + 2, 9)).Font.Bold = True
+    
+    'Row 3
+    Cells(moduleStart + 3, 1).Value = "Model"
+    Range(Cells(moduleStart + 3, 1), Cells(moduleStart + 3, 3)).Merge
+    Range(Cells(moduleStart + 3, 1), Cells(moduleStart + 3, 3)).Font.Bold = True
+    Cells(moduleStart + 3, 4).Value = "Serial#"
+    Range(Cells(moduleStart + 3, 4), Cells(moduleStart + 3, 5)).Merge
+    Range(Cells(moduleStart + 3, 4), Cells(moduleStart + 3, 9)).Font.Bold = True
+        'Installed date
+    Cells(moduleStart + 3, 6).Value = "Installed Date"
+    Range(Cells(moduleStart + 3, 6), Cells(moduleStart + 3, 8)).Merge
+    Cells(moduleStart + 3, 9).Value = "Service Fee"
+    
+    'Row 4
+    Range(Cells(moduleStart + 4, 1), Cells(moduleStart + 4, 3)).Merge
     Cells(moduleStart + 4, 1).Value = Model
-   
-    'insert Account number
-  Range(Cells(moduleStart + 13, 2), Cells(moduleStart + 13, 5)).Merge
+    Range(Cells(moduleStart + 4, 4), Cells(moduleStart + 4, 5)).Interior.ColorIndex = 6
+    Range(Cells(moduleStart + 4, 6), Cells(moduleStart + 4, 8)).Merge
+    Cells(moduleStart + 4, 9).Interior.ColorIndex = 6
+    
+    
+    'Row 5
+    Cells(moduleStart + 5, 1).Value = "Additional Fixed Charge"
+    Range(Cells(moduleStart + 5, 1), Cells(moduleStart + 5, 3)).Merge
+    Range(Cells(moduleStart + 5, 1), Cells(moduleStart + 5, 3)).Font.Bold = True
+    Cells(moduleStart + 5, 4).Value = "Fix Change Amount"
+    Range(Cells(moduleStart + 5, 4), Cells(moduleStart + 5, 9)).Font.Bold = True
+    Cells(moduleStart + 5, 6).Value = "Billing Frequency"
+    Range(Cells(moduleStart + 5, 6), Cells(moduleStart + 5, 8)).Merge
+    Cells(moduleStart + 5, 9).Value = "Initial Period (Mths)"
+    
+    'Row 6
+    Cells(moduleStart + 6, 1).Value = "NO"
+    Cells(moduleStart + 6, 2).Value = "YES"
+    Range(Cells(moduleStart + 6, 4), Cells(moduleStart + 6, 5)).Merge
+    Range(Cells(moduleStart + 6, 4), Cells(moduleStart + 6, 8)).Interior.ColorIndex = 6
+    Range(Cells(moduleStart + 6, 6), Cells(moduleStart + 6, 8)).Merge
+    Cells(moduleStart + 6, 9).HorizontalAlignment = xlLeft
+    Cells(moduleStart + 6, 9).Value = 12
+    
+    'Row 7
+    Cells(moduleStart + 7, 1).Value = "Fixed Charge Description (if applicable):"
+    Range(Cells(moduleStart + 7, 1), Cells(moduleStart + 7, 9)).Merge
+    
+    'Row 8
+    Range(Cells(moduleStart + 8, 1), Cells(moduleStart + 10, 9)).Borders.LineStyle = xlContinuous
+    Cells(moduleStart + 8, 2).Value = "Image Charge"
+    Range(Cells(moduleStart + 8, 2), Cells(moduleStart + 8, 9)).Font.Bold = True
+    Range(Cells(moduleStart + 8, 2), Cells(moduleStart + 8, 4)).HorizontalAlignment = xlCenter
+    Range(Cells(moduleStart + 8, 2), Cells(moduleStart + 8, 4)).Merge
+    Cells(moduleStart + 8, 8).Value = "Meter Start"
+    Range(Cells(moduleStart + 8, 8), Cells(moduleStart + 8, 8)).HorizontalAlignment = xlCenter
+    Range(Cells(moduleStart + 8, 8), Cells(moduleStart + 8, 9)).Merge
+    
+    'Agreed Volume
+    Cells(moduleStart + 8, 5).Value = "Agreed Volume"
+    Range(Cells(moduleStart + 8, 5), Cells(moduleStart + 8, 5)).HorizontalAlignment = xlCenter
+    Range(Cells(moduleStart + 8, 5), Cells(moduleStart + 8, 7)).Merge
+    
+    'Row 9
+    Cells(moduleStart + 9, 1).Value = "Blk"
+    Range(Cells(moduleStart + 9, 2), Cells(moduleStart + 9, 4)).HorizontalAlignment = xlCenter
+    Range(Cells(moduleStart + 9, 2), Cells(moduleStart + 9, 4)).Merge
+    Cells(moduleStart + 9, 5).Value = Sheets(2).Cells(machine, 39).Value
+    Range(Cells(moduleStart + 9, 5), Cells(moduleStart + 9, 7)).HorizontalAlignment = xlCenter
+    Range(Cells(moduleStart + 9, 5), Cells(moduleStart + 9, 7)).Merge
+        'under meter start
+    Range(Cells(moduleStart + 9, 8), Cells(moduleStart + 9, 8)).HorizontalAlignment = xlCenter
+    Range(Cells(moduleStart + 9, 8), Cells(moduleStart + 9, 9)).Merge
+    
+    'Row 10
+    Cells(moduleStart + 10, 1).Value = "Clr"
+    Cells(moduleStart + 10, 2).Value = Sheets(2).Cells(machine, 38).Value
+    Range(Cells(moduleStart + 10, 2), Cells(moduleStart + 10, 4)).HorizontalAlignment = xlCenter
+    Range(Cells(moduleStart + 10, 2), Cells(moduleStart + 10, 4)).Merge
+    Cells(moduleStart + 10, 5).Value = Sheets(2).Cells(machine, 40).Value
+    Range(Cells(moduleStart + 10, 5), Cells(moduleStart + 10, 5)).HorizontalAlignment = xlCenter
+    Range(Cells(moduleStart + 10, 5), Cells(moduleStart + 10, 7)).Merge
+    Range(Cells(moduleStart + 10, 8), Cells(moduleStart + 10, 8)).HorizontalAlignment = xlCenter
+    Range(Cells(moduleStart + 10, 8), Cells(moduleStart + 10, 9)).Merge
+    
+    'Row 11
+    '//////////////// insert checkboxes here /////////////
+        'Box 1
+    cellOne = "B" + CStr(moduleStart + 11)
+    Sheets(serviceAgreementSheet).CheckBoxes.Add(Left:=Range(cellOne).Left, Top:=Range(cellOne).Top, Width:=175, Height:=Range(cellOne).Height).Select
+    With Selection
+        .Caption = "Black Included / Colour Included"
+        .Value = True
+    End With
+        'Box 2
+    cellOne = "F" + CStr(moduleStart + 11)
+    Sheets(serviceAgreementSheet).CheckBoxes.Add(Left:=Range(cellOne).Left, Top:=Range(cellOne).Top, Width:=175, Height:=Range(cellOne).Height).Select
+    With Selection
+        .Caption = "Black Not Included / Colour Included"
+    End With
+        'Box 3
+    cellOne = "B" + CStr(moduleStart + 12)
+    Sheets(serviceAgreementSheet).CheckBoxes.Add(Left:=Range(cellOne).Left, Top:=Range(cellOne).Top, Width:=175, Height:=Range(cellOne).Height).Select
+    With Selection
+        .Caption = "Black Included / Colour  Not Included"
+    End With
+        'Box 4
+    cellOne = "F" + CStr(moduleStart + 12)
+    Sheets(serviceAgreementSheet).CheckBoxes.Add(Left:=Range(cellOne).Left, Top:=Range(cellOne).Top, Width:=175, Height:=Range(cellOne).Height).Select
+    With Selection
+        .Caption = "Black Not Included / Colour Not Included"
+    End With
+    
+     'Box 5
+    Cells(moduleStart + 14, 1).Value = "@ Remote Meter Reads:"
+    Cells(moduleStart + 14, 1).Font.Bold = True
+    cellOne = "B" + CStr(moduleStart + 14)
+    Sheets(serviceAgreementSheet).CheckBoxes.Add(Left:=Range(cellOne).Left, Top:=Range(cellOne).Top, Width:=175, Height:=Range(cellOne).Height).Select
+    With Selection
+        .Caption = "Accepted"
+        .Value = True
+    End With
+    
+        'Box 6
+    cellOne = "F" + CStr(moduleStart + 14)
+        Sheets(serviceAgreementSheet).CheckBoxes.Add(Left:=Range(cellOne).Left, Top:=Range(cellOne).Top, Width:=175, Height:=Range(cellOne).Height).Select
+    With Selection
+        .Caption = "Declined"
+    End With
+    
+    moduleStart = moduleStart + 4
+    
+    ' //////////////////// end of checkboxes ////////////////
+    
+    'Row 12
+    Cells(moduleStart + 12, 1).Value = "SHIP TO:"
+    Range(Cells(moduleStart + 12, 1), Cells(moduleStart + 12, 9)).Merge
+    Cells(moduleStart + 12, 1).Font.Bold = True
+    
+    'Row 13
+    Cells(moduleStart + 13, 1).Value = "Account #:"
+    Cells(moduleStart + 13, 6).Value = "Meter Read:"
+    Range(Cells(moduleStart + 13, 7), Cells(moduleStart + 13, 9)).Merge
+    Range(Cells(moduleStart + 13, 7), Cells(moduleStart + 13, 9)).Borders(xlEdgeBottom).LineStyle = xlDash
+    Range(Cells(moduleStart + 13, 7), Cells(moduleStart + 13, 8)).Interior.ColorIndex = 6
+        'insert Account number
+    Range(Cells(moduleStart + 13, 2), Cells(moduleStart + 13, 5)).Merge
     Range(Cells(moduleStart + 13, 2), Cells(moduleStart + 13, 5)).Borders(xlEdgeBottom).LineStyle = xlDash
     Cells(moduleStart + 13, 2).Value = accountNumber
     Cells(moduleStart + 13, 2).HorizontalAlignment = xlLeft
-   
-    'Get CompanyName from sheet
-  Range(Cells(moduleStart + 14, 2), Cells(moduleStart + 14, 5)).Merge
+    
+    'Row 14
+        'Get CompanyName from sheet
+    Range(Cells(moduleStart + 14, 2), Cells(moduleStart + 14, 5)).Merge
     Range(Cells(moduleStart + 14, 2), Cells(moduleStart + 14, 5)).Borders(xlEdgeBottom).LineStyle = xlDash
     CompanyName = Sheets(myActiveSheet).Cells(7, 2).Value
     Cells(moduleStart + 14, 2).Value = CompanyName
-   
-    'Get Address from sheet
-  Range(Cells(moduleStart + 15, 2), Cells(moduleStart + 15, 5)).Merge
+    Cells(moduleStart + 14, 1).Value = "Name"
+    Cells(moduleStart + 14, 6).Value = "Phone #:"
+    Range(Cells(moduleStart + 14, 7), Cells(moduleStart + 14, 9)).Merge
+    Range(Cells(moduleStart + 14, 7), Cells(moduleStart + 14, 9)).Borders(xlEdgeBottom).LineStyle = xlDash
+    
+    'Row 15
+    Cells(moduleStart + 15, 1).Value = "Address"
+        'Get Address from sheet
+    Range(Cells(moduleStart + 15, 2), Cells(moduleStart + 15, 5)).Merge
     Range(Cells(moduleStart + 15, 2), Cells(moduleStart + 15, 5)).Borders(xlEdgeBottom).LineStyle = xlDash
     Address = Sheets(myActiveSheet).Cells(8, 2).Value
     Cells(moduleStart + 15, 2).Value = Address
-   
-    'Get City from sheet
-  Range(Cells(moduleStart + 16, 2), Cells(moduleStart + 16, 5)).Merge
+    Cells(moduleStart + 15, 6).Value = "Fax #:"
+    Range(Cells(moduleStart + 15, 7), Cells(moduleStart + 15, 9)).Merge
+    Range(Cells(moduleStart + 15, 7), Cells(moduleStart + 15, 9)).Borders(xlEdgeBottom).LineStyle = xlDash
+       
+    'Row 16
+    Range(Cells(moduleStart + 16, 2), Cells(moduleStart + 16, 5)).Merge
     Range(Cells(moduleStart + 16, 2), Cells(moduleStart + 16, 5)).Borders(xlEdgeBottom).LineStyle = xlDash
-    City = Sheets(myActiveSheet).Cells(9, 2).Value
     Cells(moduleStart + 16, 2).Value = City
-   
-    'Get State from sheet
-  State = Sheets(myActiveSheet).Cells(10, 2).Value
-   
-    'Get ZipCode from sheet
-  Range(Cells(moduleStart + 17, 2), Cells(moduleStart + 17, 5)).Merge
-    Range(Cells(moduleStart + 17, 2), Cells(moduleStart + 17, 5)).Borders(xlEdgeBottom).LineStyle = xlDash
-    ZipCode = Sheets(myActiveSheet).Cells(11, 2).Value
+    Cells(moduleStart + 16, 6).Value = "Email:"
+    Range(Cells(moduleStart + 16, 7), Cells(moduleStart + 16, 9)).Merge
+    Range(Cells(moduleStart + 16, 7), Cells(moduleStart + 16, 9)).Borders(xlEdgeBottom).LineStyle = xlDash
+    
+    'Row 17
     Cells(moduleStart + 17, 2).Value = State & " - " & ZipCode
-   
-    Cells(moduleStart + 6, 9).Value = 12
-   
+    Range(Cells(moduleStart + 17, 2), Cells(moduleStart + 17, 5)).Merge
+    Range(Cells(moduleStart + 17, 2), Cells(moduleStart + 17, 5)).Borders(xlEdgeBottom).LineStyle = xlDash
+    Range(Cells(moduleStart + 17, 7), Cells(moduleStart + 17, 9)).Merge
+    
+    'Row 18
+    Range(Cells(moduleStart + 18, 1), Cells(moduleStart + 18, 9)).Merge
+    
+    'Row 19
+    Cells(moduleStart + 19, 1).Value = "Special Provisions:"
+    Range(Cells(moduleStart + 19, 1), Cells(moduleStart + 20, 8)).Merge
+    Range(Cells(moduleStart + 19, 1), Cells(moduleStart + 20, 8)).VerticalAlignment = xlVAlignTop
+    Range(Cells(moduleStart + 19, 1), Cells(moduleStart + 20, 8)).Borders.LineStyle = xlContinuous
+    Cells(moduleStart + 19, 9).Value = "Customer " & Chr(10) & "Initial:"
+    Range(Cells(moduleStart + 19, 9), Cells(moduleStart + 20, 9)).Merge
+    Range(Cells(moduleStart + 19, 9), Cells(moduleStart + 20, 9)).Borders.LineStyle = xlContinuous
+
+' ////////////////////////////////////////////
+
     moduleStart = moduleStart + 20
    
     If machineQty <= 1 Then
@@ -282,7 +315,7 @@ Next i
 'Application
 Range(Cells(moduleStart + 1, 1), Cells(moduleStart + 1, 9)).Merge
 Cells(moduleStart + 1, 1).Value = "APPLICATION:" & Chr(10) & appText
-Cells(moduleStart + 1, 1).Font.Size = 6.5
+Cells(moduleStart + 1, 1).Font.Size = 8.5
 Cells(moduleStart + 1, 1).Font.Bold = False
 Cells(moduleStart + 1, 1).Characters(1, 12).Font.Bold = True
 Cells(moduleStart + 1, 1).Characters(1, 12).Font.Size = 7.5
@@ -309,7 +342,7 @@ Cells(moduleStart + 3, 1).Font.Bold = False
  
 'Acceptance
 Cells(moduleStart + 3, 9).Value = "Acceptance by Document Direction Limited"
-Cells(moduleStart + 3, 9).Font.Size = 6.5
+Cells(moduleStart + 3, 9).Font.Size = 8.5
 Cells(moduleStart + 3, 9).Font.Bold = False
  
 'SignatureField2
@@ -353,6 +386,8 @@ Range(Cells(moduleStart + 5, 7), Cells(moduleStart + 5, 8)).Merge
 Cells(moduleStart + 5, 9).Font.Bold = False
 Cells(moduleStart + 5, 9).Value = "Service Start Date:"
 Cells(moduleStart + 5, 9).VerticalAlignment = xlBottom
+
+Cells(1, 1).Select
 
 End Sub
 
